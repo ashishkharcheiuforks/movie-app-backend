@@ -1,0 +1,98 @@
+# Movie app translation file.
+# Copyright (C) 2019 Mücahit Nezir
+# This file is distributed under the same license as the PACKAGE package.
+# Mücahit Nezir <mucahitnezir@gmail.com>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2019-08-28 22:48+0300\n"
+"Last-Translator: Mücahit Nezir <mucahitnezir@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: location/models.py:6
+msgid "Country name"
+msgstr "Ülke adı"
+
+#: location/models.py:7 movie/models.py:9 movie/models.py:26
+msgid "Seo link"
+msgstr ""
+
+#: location/models.py:12 movie/models.py:28
+msgid "Country"
+msgstr "Ülke"
+
+#: location/models.py:13
+msgid "Countries"
+msgstr "Ülkeler"
+
+#: movie/models.py:8
+msgid "Genre name"
+msgstr "Tür adı"
+
+#: movie/models.py:10 movie/models.py:30
+msgid "Description"
+msgstr "Açıklama"
+
+#: movie/models.py:11 movie/models.py:32 movie/models.py:66
+msgid "Created at"
+msgstr "Oluşturulma Tarihi"
+
+#: movie/models.py:12 movie/models.py:33 movie/models.py:67
+msgid "Updated at"
+msgstr "Güncellenme Tarihi"
+
+#: movie/models.py:17
+msgid "Genre"
+msgstr "Tür"
+
+#: movie/models.py:18 movie/models.py:27
+msgid "Genres"
+msgstr "Türler"
+
+#: movie/models.py:25
+msgid "Movie name"
+msgstr "Film adı"
+
+#: movie/models.py:29
+msgid "Release date"
+msgstr "Yayın tarihi"
+
+#: movie/models.py:31
+msgid "Movie image"
+msgstr "Film görseli"
+
+#: movie/models.py:38 movie/models.py:62
+msgid "Movie"
+msgstr "Film"
+
+#: movie/models.py:39
+msgid "Movies"
+msgstr "Filmler"
+
+#: movie/models.py:61
+msgid "User"
+msgstr "Kullanıcı"
+
+#: movie/models.py:63 movie/models.py:73
+msgid "Comment"
+msgstr "Yorum"
+
+#: movie/models.py:64
+msgid "Star"
+msgstr "Yıldız"
+
+#: movie/models.py:65
+msgid "Confirmed"
+msgstr "Onay durumu"
+
+#: movie/models.py:74
+msgid "Comments"
+msgstr "Yorumlar"
+
+#: user/models.py:7
+msgid "email address"
+msgstr "Eposta adresi"
