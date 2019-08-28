@@ -13,6 +13,7 @@ urlpatterns = [
     # Movie
     path('', include('location.urls')),
     path('', include('movie.urls')),
+    path('', include('user.urls')),
     # Admin panel
     path('admin/', admin.site.urls),
 ]
