@@ -1,20 +1,27 @@
 import os
+import environ
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from datetime import timedelta
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Load environment variables
+env = environ.Env()
+env_file = os.path.join(BASE_DIR, '.env')
+if os.path.isfile(env_file):
+    env.read_env(env_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6@m=o71hkf8ep==*rlh&h=m8$#&aok*446_nf!=1@ezpl19bib'
+SECRET_KEY = env.str('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', ['localhost'])
 
 # Application definition
 
@@ -157,7 +164,4 @@ SIMPLE_JWT = {
 # Cors
 # https://github.com/adamchainz/django-cors-headers
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost',
-    'http://localhost:3000',
-)
+CORS_ORIGIN_WHITELIST = env.list('CORS_ORIGIN_WHITELIST', [])
