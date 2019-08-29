@@ -13,6 +13,7 @@ class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieListSerializer
     permission_classes = (IsAdminUserOrReadOnly,)
+    lookup_field = 'slug'
 
     def get_serializer_class(self):
         if self.request.method in SAFE_METHODS:
