@@ -1,8 +1,8 @@
-from rest_framework import permissions
+from rest_framework import permissions, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from user.serializers import UserSerializer
+from user.serializers import UserSerializer, UserCreationSerializer
 
 
 class CurrentUserView(APIView):
@@ -11,3 +11,8 @@ class CurrentUserView(APIView):
     def get(self, request):
         serializer = UserSerializer(request.user)
         return Response({'user': serializer.data})
+
+
+class UserCreateAPIView(generics.CreateAPIView):
+    serializer_class = UserCreationSerializer
+    permission_classes = (permissions.AllowAny,)
