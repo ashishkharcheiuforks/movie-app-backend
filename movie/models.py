@@ -57,6 +57,24 @@ class Movie(models.Model):
         return unique_slug
 
 
+class Trailer(models.Model):
+    movie = models.ForeignKey(Movie, models.CASCADE, 'trailers', verbose_name=_('Movie'))
+    title = models.CharField(_('Trailer title'), max_length=160)
+    release_date = models.DateField(_('Release date'))
+    video_url = models.URLField(_('Video Url'))
+    created_at = models.DateTimeField(_('Created at'), auto_now_add=True)
+    updated_at = models.DateTimeField(_('Updated at'), auto_now=True)
+
+    class Meta:
+        db_table = 'trailers'
+        ordering = ('-movie', 'id')
+        verbose_name = _('Trailer')
+        verbose_name_plural = _('Trailers')
+
+    def __str__(self):
+        return self.title
+
+
 class Comment(models.Model):
     user = models.ForeignKey('user.User', models.CASCADE, verbose_name=_('User'))
     movie = models.ForeignKey(Movie, models.CASCADE, verbose_name=_('Movie'))
