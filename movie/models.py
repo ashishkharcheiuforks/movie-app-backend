@@ -1,5 +1,6 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
+from django.db.models import Avg
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 
@@ -31,6 +32,12 @@ class Movie(models.Model):
     image = models.ImageField(_('Movie image'))
     created_at = models.DateTimeField(_('Created at'), auto_now_add=True)
     updated_at = models.DateTimeField(_('Updated at'), auto_now=True)
+
+    @property
+    def rating(self):
+        return self.comment_set.filter(confirmed=True).aggregate(Avg('star'))['star__avg']
+
+    rating.fget.short_description = _('Rating')
 
     class Meta:
         db_table = 'movies'

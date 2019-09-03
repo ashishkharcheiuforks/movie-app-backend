@@ -23,7 +23,7 @@ class TrailerAdmin(admin.ModelAdmin):
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'country', 'release_date', 'created_at')
+    list_display = ('id', 'name', 'country', 'rating', 'release_date', 'created_at')
     list_filter = ('country',)
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ('name',)
