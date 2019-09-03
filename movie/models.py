@@ -60,8 +60,8 @@ class Movie(models.Model):
 class Trailer(models.Model):
     movie = models.ForeignKey(Movie, models.CASCADE, 'trailers', verbose_name=_('Movie'))
     title = models.CharField(_('Trailer title'), max_length=160)
-    release_date = models.DateField(_('Release date'))
     video_url = models.URLField(_('Video Url'))
+    release_date = models.DateField(_('Release date'))
     created_at = models.DateTimeField(_('Created at'), auto_now_add=True)
     updated_at = models.DateTimeField(_('Updated at'), auto_now=True)
 
