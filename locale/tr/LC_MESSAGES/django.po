@@ -6,7 +6,8 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2019-08-28 22:48+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-03 22:28+0300\n"
 "Last-Translator: Mücahit Nezir <mucahitnezir@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +38,11 @@ msgstr "Tür adı"
 msgid "Description"
 msgstr "Açıklama"
 
-#: movie/models.py:11 movie/models.py:32 movie/models.py:66
+#: movie/models.py:11 movie/models.py:32 movie/models.py:65 movie/models.py:84
 msgid "Created at"
 msgstr "Oluşturulma Tarihi"
 
-#: movie/models.py:12 movie/models.py:33 movie/models.py:67
+#: movie/models.py:12 movie/models.py:33 movie/models.py:66 movie/models.py:85
 msgid "Updated at"
 msgstr "Güncellenme Tarihi"
 
@@ -57,7 +58,7 @@ msgstr "Türler"
 msgid "Movie name"
 msgstr "Film adı"
 
-#: movie/models.py:29
+#: movie/models.py:29 movie/models.py:63
 msgid "Release date"
 msgstr "Yayın tarihi"
 
@@ -65,7 +66,7 @@ msgstr "Yayın tarihi"
 msgid "Movie image"
 msgstr "Film görseli"
 
-#: movie/models.py:38 movie/models.py:62
+#: movie/models.py:38 movie/models.py:61 movie/models.py:80
 msgid "Movie"
 msgstr "Film"
 
@@ -73,23 +74,39 @@ msgstr "Film"
 msgid "Movies"
 msgstr "Filmler"
 
-#: movie/models.py:61
+#: movie/models.py:62
+msgid "Trailer title"
+msgstr "Fragman başlığı"
+
+#: movie/models.py:64
+msgid "Video Url"
+msgstr "Video Url"
+
+#: movie/models.py:71
+msgid "Trailer"
+msgstr "Fragman"
+
+#: movie/models.py:72
+msgid "Trailers"
+msgstr "Fragmanlar"
+
+#: movie/models.py:79
 msgid "User"
 msgstr "Kullanıcı"
 
-#: movie/models.py:63 movie/models.py:73
+#: movie/models.py:81 movie/models.py:91
 msgid "Comment"
 msgstr "Yorum"
 
-#: movie/models.py:64
+#: movie/models.py:82
 msgid "Star"
 msgstr "Yıldız"
 
-#: movie/models.py:65
+#: movie/models.py:83
 msgid "Confirmed"
 msgstr "Onay durumu"
 
-#: movie/models.py:74
+#: movie/models.py:92
 msgid "Comments"
 msgstr "Yorumlar"
 
