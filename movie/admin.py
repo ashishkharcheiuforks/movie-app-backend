@@ -1,10 +1,15 @@
 from django.contrib import admin
 
-from .models import Genre, Movie, Comment, Trailer
+from .models import Genre, Movie, Comment, Trailer, MovieArtist
 
 
 class TrailerInlineAdmin(admin.TabularInline):
     model = Trailer
+    extra = 1
+
+
+class MovieArtistInlineAdmin(admin.TabularInline):
+    model = MovieArtist
     extra = 1
 
 
@@ -24,13 +29,13 @@ class TrailerAdmin(admin.ModelAdmin):
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'country', 'rating', 'release_date', 'created_at')
-    list_filter = ('country',)
+    list_filter = ('country', 'movieartist__artist')
     prepopulated_fields = {'slug': ('name',)}
-    search_fields = ('name',)
+    search_fields = ('name', 'movieartist__artist__first_name')
 
     def get_inline_instances(self, request, obj=None):
         if obj:
-            self.inlines = (TrailerInlineAdmin,)
+            self.inlines = (TrailerInlineAdmin, MovieArtistInlineAdmin)
         return super().get_inline_instances(request, obj)
 
 

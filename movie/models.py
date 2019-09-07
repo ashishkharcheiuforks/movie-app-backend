@@ -39,6 +39,12 @@ class Movie(models.Model):
 
     rating.fget.short_description = _('Rating')
 
+    @property
+    def year(self):
+        return self.release_date.year
+
+    year.fget.short_description = _('Year')
+
     class Meta:
         db_table = 'movies'
         ordering = ('-id',)
@@ -100,3 +106,21 @@ class Comment(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+
+class MovieArtist(models.Model):
+    movie = models.ForeignKey(Movie, models.CASCADE, verbose_name=_('Movie'))
+    artist = models.ForeignKey('artist.Artist', models.CASCADE, verbose_name=_('Artist'))
+    job = models.ForeignKey('artist.Job', models.CASCADE, verbose_name=_('Job'))
+    created_at = models.DateTimeField(_('Created at'), auto_now_add=True)
+    updated_at = models.DateTimeField(_('Updated at'), auto_now=True)
+
+    class Meta:
+        db_table = 'movie_artist'
+        ordering = ('job',)
+        unique_together = ('movie', 'artist', 'job')
+        verbose_name = _('Movie & Artist')
+        verbose_name_plural = _('Movie & Artists')
+
+    def __str__(self):
+        return '{} / {}'.format(self.artist, self.job)
