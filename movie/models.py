@@ -117,7 +117,7 @@ class MovieArtist(models.Model):
 
     class Meta:
         db_table = 'movie_artist'
-        ordering = ('job',)
+        ordering = ('-movie__release_date', 'id')
         unique_together = ('movie', 'artist', 'job')
         verbose_name = _('Movie & Artist')
         verbose_name_plural = _('Movie & Artists')

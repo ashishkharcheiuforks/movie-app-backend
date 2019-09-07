@@ -54,4 +54,13 @@ class MovieArtistSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MovieArtist
-        fields = ('artist', 'job')
+        fields = ('id', 'artist', 'job')
+
+
+class MovieArtistNoMovieSerializer(serializers.ModelSerializer):
+    movie = MovieSerializer()
+    job = JobSerializer()
+
+    class Meta:
+        model = MovieArtist
+        fields = ('id', 'movie', 'job')
