@@ -5,8 +5,12 @@ from rest_framework.permissions import SAFE_METHODS, IsAuthenticated
 from rest_framework.response import Response
 
 from app.permissions import IsAdminUserOrReadOnly
+from artist.models import Artist
+from artist.serializers import ArtistNoJobsSerializer
+from parameter.helper import ACTOR_JOB_ID, DIRECTOR_JOB_ID
 from .models import Movie, Genre, Comment
-from .serializers import MovieSerializer, MovieListSerializer, GenreSerializer, CommentListSerializer, CommentSerializer
+from .serializers import MovieSerializer, MovieListSerializer, GenreSerializer, CommentListSerializer, \
+    CommentSerializer, MovieArtistSerializer
 
 
 class MovieViewSet(viewsets.ModelViewSet):
@@ -21,7 +25,7 @@ class MovieViewSet(viewsets.ModelViewSet):
         return MovieSerializer
 
     @action(detail=True, methods=['get'])
-    def comments(self, request, pk=None):
+    def comments(self, request, slug=None):
         movie = self.get_object()
         comments = movie.comment_set.filter(confirmed=True)
 
@@ -34,7 +38,7 @@ class MovieViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     @action(detail=True, methods=['post'], permission_classes=(IsAuthenticated,))
-    def set_comment(self, request, pk=None):
+    def set_comment(self, request, slug=None):
         movie = self.get_object()
         serializer = CommentSerializer(data=request.data)
         if serializer.is_valid():
@@ -43,13 +47,40 @@ class MovieViewSet(viewsets.ModelViewSet):
                 comment.movie = movie
                 comment.user = self.request.user
                 comment.comment = serializer.data['comment']
+                comment.star = serializer.data['star']
                 comment.save()
                 return Response(serializer.data)
             except IntegrityError as error:
-                print(type(error))
                 return Response({'detail': str(error)}, status=status.HTTP_400_BAD_REQUEST)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=True, methods=['get'])
+    def directors(self, request, slug=None):
+        if DIRECTOR_JOB_ID:
+            movie = self.get_object()
+            directors = Artist.objects.filter(movieartist__movie=movie, movieartist__job_id=DIRECTOR_JOB_ID)
+            serializer = ArtistNoJobsSerializer(directors, many=True)
+            return Response(serializer.data)
+        else:
+            return Response([])
+
+    @action(detail=True, methods=['get'])
+    def actors(self, request, slug=None):
+        if ACTOR_JOB_ID:
+            movie = self.get_object()
+            actors = Artist.objects.filter(movieartist__movie=movie, movieartist__job_id=ACTOR_JOB_ID)
+            serializer = ArtistNoJobsSerializer(actors, many=True)
+            return Response(serializer.data)
+        else:
+            return Response([])
+
+    @action(detail=True, methods=['get'])
+    def artists(self, request, slug=None):
+        movie = self.get_object()
+        artists = movie.movieartist_set.all()
+        serializer = MovieArtistSerializer(artists, many=True)
+        return Response(serializer.data)
 
 
 class GenreViewSet(viewsets.ReadOnlyModelViewSet):

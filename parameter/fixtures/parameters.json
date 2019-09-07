@@ -1,0 +1,20 @@
+[
+  {
+    "model": "parameter.Parameter",
+    "pk": 1,
+    "fields": {
+      "key": "actor_job_id",
+      "description": "Job id for actors",
+      "value": ""
+    }
+  },
+  {
+    "model": "parameter.Parameter",
+    "pk": 2,
+    "fields": {
+      "key": "director_job_id",
+      "description": "Job id for directors",
+      "value": ""
+    }
+  }
+]

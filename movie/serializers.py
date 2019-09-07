@@ -1,7 +1,8 @@
 from rest_framework import serializers
 
+from artist.serializers import ArtistNoJobsSerializer, JobSerializer
 from location.serializers import CountrySerializer
-from movie.models import Genre, Movie, Comment
+from movie.models import Genre, Movie, Comment, MovieArtist
 
 
 class GenreSerializer(serializers.ModelSerializer):
@@ -36,7 +37,7 @@ class MovieBasicSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ('id', 'comment')
+        fields = ('id', 'comment', 'star')
 
 
 class CommentListSerializer(serializers.ModelSerializer):
@@ -45,3 +46,12 @@ class CommentListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ('id', 'movie', 'user', 'comment', 'created_at')
+
+
+class MovieArtistSerializer(serializers.ModelSerializer):
+    artist = ArtistNoJobsSerializer()
+    job = JobSerializer()
+
+    class Meta:
+        model = MovieArtist
+        fields = ('artist', 'job')

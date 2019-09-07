@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'location',
     'movie',
     'artist',
+    'parameter',
 ]
 
 MIDDLEWARE = [
