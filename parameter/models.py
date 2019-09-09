@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.utils import ProgrammingError
 from django.template.defaultfilters import truncatechars
 from django.utils.translation import ugettext_lazy as _
 
@@ -29,7 +30,7 @@ class Parameter(models.Model):
         try:
             param = Parameter.objects.get(key=key)
             return param.value
-        except Parameter.DoesNotExist:
+        except (Parameter.DoesNotExist, ProgrammingError):
             return None
 
     @staticmethod
