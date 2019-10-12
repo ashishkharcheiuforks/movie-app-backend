@@ -11,6 +11,7 @@ class TrailerInlineAdmin(admin.TabularInline):
 class MovieArtistInlineAdmin(admin.TabularInline):
     model = MovieArtist
     extra = 1
+    autocomplete_fields = ('artist', 'job')
 
 
 @admin.register(Movie)
