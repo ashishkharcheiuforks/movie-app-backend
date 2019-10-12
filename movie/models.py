@@ -25,9 +25,9 @@ class Genre(models.Model):
 class Movie(models.Model):
     name = models.CharField(_('Movie name'), max_length=150)
     slug = models.SlugField(_('Seo link'), unique=True)
-    genres = models.ManyToManyField(Genre, verbose_name=_('Genres'))
     country = models.ForeignKey('location.Country', models.DO_NOTHING, verbose_name=_('Country'))
     release_date = models.DateField(_('Release date'))
+    genres = models.ManyToManyField(Genre, verbose_name=_('Genres'))
     description = models.TextField(_('Description'), null=True, blank=True)
     image = models.ImageField(_('Movie image'))
     created_at = models.DateTimeField(_('Created at'), auto_now_add=True)

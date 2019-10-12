@@ -85,3 +85,17 @@ class GenreViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
     permission_classes = (permissions.AllowAny,)
+    lookup_field = 'slug'
+
+    @action(detail=True, methods=['get'])
+    def movies(self, request, slug=None):
+        genre = self.get_object()
+        movies = genre.movie_set.all()
+
+        page = self.paginate_queryset(movies)
+        if page is not None:
+            serializer = MovieListSerializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = MovieListSerializer(movies, many=True)
+        return Response(serializer.data)
