@@ -20,9 +20,7 @@ class MovieViewSet(viewsets.ModelViewSet):
     lookup_field = 'slug'
 
     def get_serializer_class(self):
-        if self.request.method in SAFE_METHODS:
-            return MovieListSerializer
-        return MovieSerializer
+        return MovieListSerializer if self.request.method in SAFE_METHODS else MovieSerializer
 
     @action(detail=True, methods=['get'])
     def comments(self, request, slug=None):

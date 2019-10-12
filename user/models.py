@@ -10,10 +10,7 @@ class User(AbstractUser):
         db_table = 'users'
 
     def __str__(self):
-        if self.first_name and self.last_name:
-            return self.get_full_name()
-        else:
-            return self.username
+        return self.get_full_name() if self.first_name and self.last_name else self.username
 
     def save(self, *args, **kwargs):
         self.email = None if self.email == '' else self.email

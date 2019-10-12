@@ -55,8 +55,7 @@ class Movie(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = self.generate_unique_slug()
+        self.slug = self.generate_unique_slug() if not self.slug else self.slug
         return super().save(*args, **kwargs)
 
     def generate_unique_slug(self):

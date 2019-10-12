@@ -26,6 +26,8 @@ class JobCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Artist)
 class ArtistAdmin(admin.ModelAdmin):
-    list_display = ('id', 'fullname', 'birth_date', 'age', 'created_at')
+    autocomplete_fields = ('country',)
+    list_display = ('id', 'fullname', 'country', 'birth_date', 'age', 'created_at')
+    list_filter = ('country',)
     prepopulated_fields = {'slug': ('first_name', 'last_name')}
     search_fields = ('first_name', 'last_name', 'jobs__name')

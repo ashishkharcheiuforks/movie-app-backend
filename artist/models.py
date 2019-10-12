@@ -41,6 +41,7 @@ class Artist(models.Model):
     last_name = models.CharField(_('Last name'), max_length=50)
     slug = models.SlugField(_('Seo link'), unique=True)
     birth_date = models.DateField(_('Birth date'), blank=True, null=True)
+    country = models.ForeignKey('location.Country', models.SET_NULL, null=True, verbose_name=_('Country'))
     image = models.ImageField(_('Image'))
     jobs = models.ManyToManyField(Job, verbose_name=_('Jobs'))
     created_at = models.DateTimeField(_('Created at'), auto_now_add=True)
