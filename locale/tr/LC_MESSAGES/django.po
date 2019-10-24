@@ -7,26 +7,30 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-07 12:48+0300\n"
+"POT-Creation-Date: 2019-10-24 16:42+0300\n"
 "Last-Translator: Mücahit Nezir <mucahitnezir@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: artist/apps.py:7 artist/models.py:63 movie/models.py:112
+msgid "Artist"
+msgstr "Sanatçı"
+
 #: artist/models.py:8 artist/models.py:23
 msgid "Name"
 msgstr "Adı"
 
-#: artist/models.py:9 artist/models.py:26 artist/models.py:46
-#: movie/models.py:12 movie/models.py:33 movie/models.py:78 movie/models.py:97
-#: movie/models.py:115
+#: artist/models.py:9 artist/models.py:26 artist/models.py:47
+#: movie/models.py:12 movie/models.py:33 movie/models.py:77 movie/models.py:96
+#: movie/models.py:114
 msgid "Created at"
 msgstr "Oluşturulma Tarihi"
 
-#: artist/models.py:10 artist/models.py:27 artist/models.py:47
-#: movie/models.py:13 movie/models.py:34 movie/models.py:79 movie/models.py:98
-#: movie/models.py:116
+#: artist/models.py:10 artist/models.py:27 artist/models.py:48
+#: movie/models.py:13 movie/models.py:34 movie/models.py:78 movie/models.py:97
+#: movie/models.py:115 parameter/models.py:11
 msgid "Updated at"
 msgstr "Güncellenme Tarihi"
 
@@ -47,11 +51,11 @@ msgstr ""
 msgid "Category"
 msgstr "Kategori"
 
-#: artist/models.py:32 movie/models.py:114
+#: artist/models.py:32 movie/models.py:113
 msgid "Job"
 msgstr "Meslek"
 
-#: artist/models.py:33 artist/models.py:45
+#: artist/models.py:33 artist/models.py:46
 msgid "Jobs"
 msgstr "Meslekler"
 
@@ -67,39 +71,44 @@ msgstr "Soyad"
 msgid "Birth date"
 msgstr "Doğum Tarihi"
 
-#: artist/models.py:44
+#: artist/models.py:44 location/models.py:12 movie/models.py:28
+msgid "Country"
+msgstr "Ülke"
+
+#: artist/models.py:45
 msgid "Image"
 msgstr "Resim"
 
-#: artist/models.py:57
+#: artist/models.py:58
 msgid "Age"
 msgstr "Yaş"
 
-#: artist/models.py:62 movie/models.py:113
-msgid "Artist"
-msgstr "Sanatçı"
-
-#: artist/models.py:63
+#: artist/models.py:64
 msgid "Artists"
 msgstr "Sanatçılar"
+
+#: location/apps.py:7
+msgid "Location"
+msgstr "Konum"
 
 #: location/models.py:6
 msgid "Country name"
 msgstr "Ülke adı"
 
-#: location/models.py:12 movie/models.py:29
-msgid "Country"
-msgstr "Ülke"
-
 #: location/models.py:13
 msgid "Countries"
 msgstr "Ülkeler"
+
+#: movie/apps.py:7 movie/models.py:51 movie/models.py:73 movie/models.py:92
+#: movie/models.py:111
+msgid "Movie"
+msgstr "Film"
 
 #: movie/models.py:9
 msgid "Genre name"
 msgstr "Tür adı"
 
-#: movie/models.py:11 movie/models.py:31
+#: movie/models.py:11 movie/models.py:31 parameter/models.py:9
 msgid "Description"
 msgstr "Açıklama"
 
@@ -107,7 +116,7 @@ msgstr "Açıklama"
 msgid "Genre"
 msgstr "Tür"
 
-#: movie/models.py:19 movie/models.py:28
+#: movie/models.py:19 movie/models.py:30
 msgid "Genres"
 msgstr "Türler"
 
@@ -115,7 +124,7 @@ msgstr "Türler"
 msgid "Movie name"
 msgstr "Film adı"
 
-#: movie/models.py:30 movie/models.py:77
+#: movie/models.py:29 movie/models.py:76
 msgid "Release date"
 msgstr "Yayın tarihi"
 
@@ -131,57 +140,81 @@ msgstr "Değerlendirme"
 msgid "Year"
 msgstr "Yıl"
 
-#: movie/models.py:51 movie/models.py:74 movie/models.py:93 movie/models.py:112
-msgid "Movie"
-msgstr "Film"
-
 #: movie/models.py:52
 msgid "Movies"
 msgstr "Filmler"
 
-#: movie/models.py:75
+#: movie/models.py:74
 msgid "Trailer title"
 msgstr "Fragman başlığı"
 
-#: movie/models.py:76
+#: movie/models.py:75
 msgid "Video Url"
 msgstr "Video Url"
 
-#: movie/models.py:84
+#: movie/models.py:83
 msgid "Trailer"
 msgstr "Fragman"
 
-#: movie/models.py:85
+#: movie/models.py:84
 msgid "Trailers"
 msgstr "Fragmanlar"
 
-#: movie/models.py:92
+#: movie/models.py:91 user/apps.py:7
 msgid "User"
 msgstr "Kullanıcı"
 
-#: movie/models.py:94 movie/models.py:104
+#: movie/models.py:93 movie/models.py:103
 msgid "Comment"
 msgstr "Yorum"
 
-#: movie/models.py:95
+#: movie/models.py:94
 msgid "Star"
 msgstr "Yıldız"
 
-#: movie/models.py:96
+#: movie/models.py:95
 msgid "Confirmed"
 msgstr "Onay durumu"
 
-#: movie/models.py:105
+#: movie/models.py:104
 msgid "Comments"
 msgstr "Yorumlar"
 
-#: movie/models.py:122
+#: movie/models.py:121
 msgid "Movie & Artist"
 msgstr "Film & Sanatçı"
 
-#: movie/models.py:123
+#: movie/models.py:122
 msgid "Movie & Artists"
 msgstr "Film & Sanatçılar"
+
+#: parameter/apps.py:7 parameter/models.py:22
+msgid "Parameter"
+msgstr "Parametre"
+
+#: parameter/models.py:8
+msgid "Parameter key"
+msgstr "Parametre anahtarı"
+
+#: parameter/models.py:10 parameter/models.py:17
+msgid "Parameter value"
+msgstr "Parametre değeri"
+
+#: parameter/models.py:23
+msgid "Parameters"
+msgstr "Parametreler"
+
+#: templates/rest_framework/api.html:5
+msgid "Movie App - Api"
+msgstr "Movie App - Api"
+
+#: templates/rest_framework/api.html:9
+msgid "Movie App"
+msgstr "Movie App"
+
+#: templates/rest_framework/login.html:5
+msgid "Movie App - Login"
+msgstr "Movie App - Giriş Yap"
 
 #: user/models.py:7
 msgid "email address"
